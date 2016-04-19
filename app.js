@@ -13,24 +13,23 @@ app.get('/', function (req, res) {
   validateTokenFunc(req, res);
 });
 
+var msgRobot = require('./msgRobot');
 app.post('/', xmlparser({trim: false, explicitArray: false}), function (req, res) {
 	console.log(req.body);
 	var reqBody = req.body.xml;
+	var username = reqBody.fromusernam;
+	var appname = reqBody.tousername;
 	var msgType = reqBody.msgtype;
 	var msg = reqBody.content;
 
-	var data = '呵呵';
-
-	if (msg == '你好') {
-		data = '我好，你也好！';		
-	} 
+	var data = msgRobot[msgType + 'Robot'](msg);
 
 	var xml = '';
 	xml += '<xml>';
-	xml += '<ToUserName>oQAJ_wdJQrm_IuHXLVnr2RVVSNGY</ToUserName>';
-	xml += '<FromUserName>gh_965ad0d8c4c4</FromUserName>';
-	xml += '<CreateTime>12345678</CreateTime>';
-	xml += '<MsgType>text</MsgType>';
+	xml += '<ToUserName>'+ username +'</ToUserName>';
+	xml += '<FromUserName>'+ appname +'</FromUserName>';
+	xml += '<CreateTime>'+ Date.now() +'</CreateTime>';
+	xml += '<MsgType>'+ msgType +'</MsgType>';
 	xml += '<Content>'+ data +'</Content>';
 	xml += '</xml>';
 
@@ -66,6 +65,7 @@ app.get('/getiplist', function (req, res) {
 			console.error('getAccessToken error');
 			return;
 		}
+		console.log(access_token);
 
 		wxInterface.getCallBackIP(access_token, function (err, iplist) {
 			if (err) {
@@ -76,8 +76,6 @@ app.get('/getiplist', function (req, res) {
 			res.send(iplist);
 		})
 	});
-
-	
-})
+});
 
 app.listen(80, '120.26.38.84');
