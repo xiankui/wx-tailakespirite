@@ -1,0 +1,19 @@
+{
+  "name": "wx-tailakespirite",
+  "description": "create weixin app with nodejs on aliyun platform",
+  "version": "0.0.1",
+  "private": true,
+  "author": {
+    "name": "vica",
+    "email": "kui_002@126.com"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "engines": {
+    "node": "4.4.3"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
