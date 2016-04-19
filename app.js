@@ -35,7 +35,7 @@ app.post('/', xmlparser({trim: false, explicitArray: false}), function (req, res
 	xml += '</xml>';
 
 	res.writeHead(200, {'Content-Type': 'application/xml'});
-	res.send(data);	
+	res.end(xml);	
 })
 
 app.get('/getaccesstoken', function (req, res) {
