@@ -15,9 +15,16 @@ app.get('/', function (req, res) {
 
 app.post('/', xmlparser({trim: false, explicitArray: false}), function (req, res) {
 	console.log(req.body);
-	data = '<xml><ToUserName>chenjsh36</ToUserName></xml>';
-	res.writeHead(200, {'Content-Type': 'application/xml'});
-	res.end(data);
+	var reqBody = req.body.xml;
+	var msgType = reqBody.msgtype;
+	var msg = reqBody.content;
+	var data = '';
+
+	if (msg == '你好') {
+		data = '我好，你也好！';
+		
+		res.end(data);
+	}	
 })
 
 app.get('/getaccesstoken', function (req, res) {
@@ -35,5 +42,20 @@ app.get('/getaccesstoken', function (req, res) {
 		res.send(access_token);
 	});
 });
+
+app.get('/getiplist', function (req, res) {
+
+	var option = app.get('/getaccesstoken');
+	console.log(option)
+
+	wxInterface.getCallBackIP(option, function (err, iplist) {
+		if (err) {
+			console.log('getCallBackIP error');
+			return;
+		}
+
+		res.send(iplist);
+	})
+})
 
 app.listen(80, '120.26.38.84');
