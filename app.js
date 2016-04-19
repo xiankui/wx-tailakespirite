@@ -77,14 +77,14 @@ app.get('/getiplist', function (req, res) {
 		secret: secret
 	};
 
-	wxInterface.getAccessToken(option, function (err, access_token) {
+	wxInterface.getAccessToken(option, function (err, access_token_obj) {
 		if (err) {
 			console.error('getAccessToken error');
 			return;
 		}
-		console.log(access_token);
+		console.log(access_token_obj);
 
-		wxInterface.getCallBackIP(access_token, function (err, iplist) {
+		wxInterface.getCallBackIP(access_token_obj, function (err, iplist) {
 			if (err) {
 				console.log('getCallBackIP error');
 				return;

@@ -26,6 +26,7 @@ var getAccessToken = function (option, callback) {
 
 // 获取微信服务器ip列表
 var getCallBackIP = function (option, callback) {
+	console.log(option)
 	var path = '/cgi-bin/getcallbackip';
 	var url = wxUrl + path + '?access_token=' + option.access_token;
 	var data = [];
