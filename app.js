@@ -18,13 +18,14 @@ app.post('/', xmlparser({trim: false, explicitArray: false}), function (req, res
 	var reqBody = req.body.xml;
 	var msgType = reqBody.msgtype;
 	var msg = reqBody.content;
-	var data = '';
+
+	var data = '呵呵';
 
 	if (msg == '你好') {
-		data = '我好，你也好！';
-		
-		res.end(data);
-	}	
+		data = '我好，你也好！';		
+	} 
+
+	res.send(data);	
 })
 
 app.get('/getaccesstoken', function (req, res) {
