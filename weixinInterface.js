@@ -26,20 +26,18 @@ var getAccessToken = function (option, callback) {
 
 // 获取微信服务器ip列表
 var getCallBackIP = function (option, callback) {
-	console.log(option)
+
 	var path = '/cgi-bin/getcallbackip';
 	var url = wxUrl + path + '?access_token=' + option.access_token;
-	var data = [];
+	var data = '';
 
-	console.log(url)
 	https.get(url, function (res) {
 		res.setEncoding('utf8');
 
 		res.on('data', function (chunk) {
-			data.push(chunk);
+			data += chunk;
 		});
 		res.on('end', function () {
-			console.log(data)
 			callback(null, data);
 		});
 	}).on('error', function (err) {
