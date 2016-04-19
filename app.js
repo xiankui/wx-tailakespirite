@@ -6,4 +6,4 @@ app.get('/', function (req, res) {
   validateTokenFunc(req, res);
 });
 
-app.listen(process.env.PORT || 5050)
+app.listen(80, '120.26.38.84');
