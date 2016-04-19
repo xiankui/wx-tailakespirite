@@ -7,12 +7,6 @@ var sha1 = function (str) {
 	return str;
 };
 
-var getAccessToken = function () {
-	var appid = '';
-	var appsecret = '';
-	var url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=fdgf&secret=dfdsgfrfsss";
-};
-
 var validateToken = function (req, res) {
 	var query = req.query;
 	var echostr = query.echostr;
@@ -25,7 +19,7 @@ var validateToken = function (req, res) {
 	var ori_arr = [];
 	ori_arr[0] = nonce;
 	ori_arr[1] = timestamp;
-	ori_arr[2] = 'mytoken';
+	ori_arr[2] = 'nanhuaijin';
 	ori_arr.sort();
 
 	var original = ori_arr[0] + ori_arr[1] + ori_arr[2];
