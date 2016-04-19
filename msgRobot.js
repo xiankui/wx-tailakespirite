@@ -13,14 +13,18 @@ var textRobot = function (content) {
 		return data;
 	}
 
-
 	switch(content) {
-		// 非中文
 		case '你好':
 			data = '我好，你也好';
 			break;
 		case '太湖三白':
 			data = '泰伯、言偃、南怀瑾';
+			break;
+		case '我美吗':
+			data = '俺里个娘来，你真美';
+			break;
+		case '笑一个':
+			data = '嘻嘻';
 			break;
 		case '下课':
 			data = '好吧，下课了';

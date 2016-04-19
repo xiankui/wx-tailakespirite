@@ -20,16 +20,33 @@ app.post('/', xmlparser({trim: false, explicitArray: false}), function (req, res
 	var username = reqBody.fromusername;
 	var appname = reqBody.tousername;
 	var msgType = reqBody.msgtype;
-	var msg = reqBody.content;
 
-	var data = msgRobot[msgType + 'Robot'](msg);
-	console.log(data);
+	var data = '';
+	if (msgType == 'text') {
+		data = msgRobot.textRobot(reqBody.content);
+	} else if (msgType == 'image') {
+		data = '哎呀妈呀，有图有真相啊';
+	} else if (msgType == 'voice') {
+		data = '大点声，我听不见';
+	} else if (msgType == 'video') {
+		data = '视频可不能乱发啊，费流量';
+	} else if (msgType == 'shortvideo') {
+		data = '小视频也费流量啊';
+	} else if (msgType == 'location') {
+		data = '小样，你在' + reqBody.label + '等着我';
+	} else if (msgType == 'link') {
+		data = '链接消息';
+	} else {
+		data = '天哪，这是神马，完全不懂啊';
+	}
+
+	
 	var xml = '';
 	xml += '<xml>';
 	xml += '<ToUserName>'+ username +'</ToUserName>';
 	xml += '<FromUserName>'+ appname +'</FromUserName>';
 	xml += '<CreateTime>'+ Date.now() +'</CreateTime>';
-	xml += '<MsgType>'+ msgType +'</MsgType>';
+	xml += '<MsgType>text</MsgType>';
 	xml += '<Content>'+ data +'</Content>';
 	xml += '</xml>';
 
