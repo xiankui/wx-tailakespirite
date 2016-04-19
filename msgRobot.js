@@ -32,4 +32,4 @@ var textRobot = function (content) {
 	return data;
 };
 
-exports.msgText = msgText;
+exports.textRobot = textRobot;
