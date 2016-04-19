@@ -8,7 +8,8 @@
     "email": "kui_002@126.com"
   },
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "express-xml-bodyparser": "^0.3.0"
   },
   "engines": {
     "node": "^4.x"

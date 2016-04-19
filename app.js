@@ -7,7 +7,7 @@ var appid = 'wx0329ec5ab7ba5ded';
 var secret = 'a70ff41899fe9845338fb57cbf4f1801';
 
 var validateTokenFunc = require('./validateToken').validateToken;
-var wxInterface = require('./weixininterface');
+var wxInterface = require('./weixinInterface');
 
 app.get('/', function (req, res) {
   validateTokenFunc(req, res);
