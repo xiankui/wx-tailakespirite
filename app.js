@@ -27,8 +27,8 @@ app.post('/', xmlparser({trim: false, explicitArray: false}), function (req, res
 
 	var xml = '';
 	xml += '<xml>';
-	xml += '<ToUserName>gh_965ad0d8c4c4</ToUserName>';
-	xml += '<FromUserName>oQAJ_wdJQrm_IuHXLVnr2RVVSNGY</FromUserName>';
+	xml += '<ToUserName>oQAJ_wdJQrm_IuHXLVnr2RVVSNGY</ToUserName>';
+	xml += '<FromUserName>gh_965ad0d8c4c4</FromUserName>';
 	xml += '<CreateTime>12345678</CreateTime>';
 	xml += '<MsgType>text</MsgType>';
 	xml += '<Content>'+ data +'</Content>';
