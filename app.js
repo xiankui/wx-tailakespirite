@@ -82,7 +82,8 @@ app.get('/getiplist', function (req, res) {
 			console.error('getAccessToken error');
 			return;
 		}
-		console.log(access_token_obj);
+		
+		access_token_obj = JSON.parse(access_token_obj);
 
 		wxInterface.getCallBackIP(access_token_obj, function (err, iplist) {
 			if (err) {
