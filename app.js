@@ -17,13 +17,13 @@ var msgRobot = require('./msgRobot');
 app.post('/', xmlparser({trim: false, explicitArray: false}), function (req, res) {
 	console.log(req.body);
 	var reqBody = req.body.xml;
-	var username = reqBody.fromusernam;
+	var username = reqBody.fromusername;
 	var appname = reqBody.tousername;
 	var msgType = reqBody.msgtype;
 	var msg = reqBody.content;
 
 	var data = msgRobot[msgType + 'Robot'](msg);
-
+	console.log(data);
 	var xml = '';
 	xml += '<xml>';
 	xml += '<ToUserName>'+ username +'</ToUserName>';
