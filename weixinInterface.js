@@ -30,6 +30,7 @@ var getCallBackIP = function (option, callback) {
 	var url = wxUrl + path + '?access_token=' + option.access_token;
 	var data = [];
 
+	console.log(url)
 	https.get(url, function (res) {
 		res.setEncoding('utf8');
 
@@ -37,6 +38,7 @@ var getCallBackIP = function (option, callback) {
 			data.push(chunk);
 		});
 		res.on('end', function () {
+			console.log(data)
 			callback(null, data);
 		});
 	}).on('error', function (err) {
