@@ -3,6 +3,7 @@ var app = express();
 
 var xmlparser = require('express-xml-bodyparser');
 
+// 开发者ID  
 var appid = 'wx0329ec5ab7ba5ded';
 var secret = 'a70ff41899fe9845338fb57cbf4f1801';
 
@@ -14,11 +15,12 @@ app.get('/', function (req, res) {
 });
 
 var msgRobot = require('./msgRobot');
+
 app.post('/', xmlparser({trim: false, explicitArray: false}), function (req, res) {
 	console.log(req.body);
 	var reqBody = req.body.xml;
-	var username = reqBody.fromusername;
-	var appname = reqBody.tousername;
+	var username = reqBody.fromusername; // UID: oQAJ_wdJQrm_IuHXLVnr2RVVSNGY  
+	var appname = reqBody.tousername; // 原始ID: gh_965ad0d8c4c4
 	var msgType = reqBody.msgtype;
 
 	var data = '';

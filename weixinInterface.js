@@ -3,7 +3,6 @@ const https = require('https');
 var wxUrl = 'https://api.weixin.qq.com';
 
 
-
 // 获取access_token
 var getAccessToken = function (option, callback) {
 	var path = '/cgi-bin/token';
