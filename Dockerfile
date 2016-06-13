@@ -14,4 +14,4 @@ RUN npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.
 EXPOSE 8000
 
 # 设置启动时默认运行命令
-CMD ["npm start"]  
+CMD ["npm", "start"]  
