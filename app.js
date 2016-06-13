@@ -96,4 +96,8 @@ app.get('/getiplist', function (req, res) {
 	});
 });
 
-app.listen(80, '120.26.38.84');
+const port = process.env.HTTP_PORT || 443;
+
+app.listen(port, function () {
+	console.log('wx-tailake running at port %s', port);
+});

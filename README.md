@@ -1,7 +1,6 @@
 # 微信公众号-太湖三白-Nodejs服务器代码
 
 ssh root@139.129.200.105
-HK1024team
 
 ## docker command
  * http://www.hjue.me/post/docker-command
